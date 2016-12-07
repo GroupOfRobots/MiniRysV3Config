@@ -1,11 +1,7 @@
-change ip adress
-
-on local
 edit uEnv.txt add line dtb=am335x-bonegreen-wireless.dtb
-scp am335x-bonegreen-wireless.dts root@192.168.1.101:/opt/source/dtb-4.4-ti/src/arm
-scp am335x-bonegreen-irys.dtsi root@192.168.1.101:/opt/source/dtb-4.4-ti/src/arm
+cp am335x-bonegreen-wireless.dts /opt/source/dtb-4.4-ti/src/arm
+cp am335x-bonegreen-irys.dtsi /opt/source/dtb-4.4-ti/src/arm
 
-on remote
 cd /opt/source/dtb-4.4-ti 
 make 
 make install
