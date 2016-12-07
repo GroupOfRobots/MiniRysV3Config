@@ -21,3 +21,12 @@ chmod 664 /etc/systemd/system/startup.service
 systemctl daemon-reload
 systemctl enable startup.service
 systemctl start startup.service
+
+systemctl stop apache2.service
+systemctl disable apache2.service
+
+systemctl stop pulseaudio.service
+systemctl disable pulseaudio.service
+
+systemctl stop cloud9.socket 
+systemctl disable cloud9.socket
