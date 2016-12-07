@@ -1,0 +1,19 @@
+on local
+scp initial.sh root@192.168.1.104:/usr/bin
+scp startup.service root@192.168.1.104:/etc/systemd/system
+
+on remote //fix it 
+chmod 744 /usr/bin/initial.sh
+chmod 664 /etc/systemd/system/startup.service
+systemctl daemon-reload
+systemctl enable startup.service
+systemctl start startup.service
+
+//pru firmware 
+copy bin files to /lib/firmware
+
+cd /lib/firmware
+ln -s PRU_RPMsg_Echo_Interrupt0.out am335x-pru0-fw
+ln -s PRU_RPMsg_Echo_Interrupt1.out am335x-pru1-fw
+
+

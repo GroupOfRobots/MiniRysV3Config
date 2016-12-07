@@ -1,0 +1,10 @@
+[Unit]
+Description= <startup script>
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/initial.sh
+
+[Install]
+WantedBy=multi-user.target
