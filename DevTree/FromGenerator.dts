@@ -1,0 +1,16 @@
+/* P8 */ 
+"P8.39", 	/* Motor Left Direction	*/
+"P8.40", 	/* Motor Left Step	*/
+"P8.41", 	/* Motor Left M0	*/
+"P8.42", 	/* Motor Left M1	*/
+"P8.43", 	/* Motor Right Direction*/
+"P8.44", 	/* Motor Right Step	*/
+"P8.45", 	/* Motor Right M0	*/
+"P8.46", 	/* Motor Right M1	*/
+"P8.27", 	/* Sonar Trigger 	*/
+"P8.28", 	/* Sonar 1 Echo		*/
+"P8.29", 	/* Sonar 2 Echo		*/
+"P8.30"; 	/* Sonar 3 Echo		*/
+
+
+
