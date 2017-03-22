@@ -30,3 +30,9 @@ systemctl disable pulseaudio.service
 
 systemctl stop cloud9.socket 
 systemctl disable cloud9.socket
+
+systemctl stop wificonfig.service
+systemctl disable wificonfig.service
+apt-get remove nodejs
+apt-get remove nodered
+
