@@ -1,3 +1,4 @@
+cd ~/RobotConfig
 nano /boot/uEnv.txt add line dtb=am335x-bonegreen-wireless.dtb
 cp DevTree/am335x-bonegreen-wireless.dts /opt/source/dtb-4.4-ti/src/arm
 cp DevTree/am335x-bonegreen-irys.dtsi /opt/source/dtb-4.4-ti/src/arm
@@ -5,7 +6,7 @@ cp DevTree/am335x-bonegreen-irys.dtsi /opt/source/dtb-4.4-ti/src/arm
 cd /opt/source/dtb-4.4-ti 
 make 
 make install
-cd ~
+cd ~/RobotConfig
 echo BB-ADC > /sys/devices/platform/bone_capemgr/slots
 
 cp PRUfirmware/*.out /lib/firmware
@@ -33,6 +34,7 @@ systemctl disable cloud9.socket
 
 systemctl stop wificonfig.service
 systemctl disable wificonfig.service
+
 apt-get remove nodejs
-apt-get remove nodered
+
 
