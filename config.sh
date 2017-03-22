@@ -1,3 +1,5 @@
+git clone https://github.com/GroupOfRobots/RobotConfig
+
 cd ~/RobotConfig
 nano /boot/uEnv.txt add line dtb=am335x-bonegreen-wireless.dtb
 cp DevTree/am335x-bonegreen-wireless.dts /opt/source/dtb-4.4-ti/src/arm
