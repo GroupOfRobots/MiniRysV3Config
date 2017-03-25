@@ -1,25 +1,25 @@
 #!/bin/bash
 
-#rys_ip=$1
+rys_ip=$1
 
-#if [[ $rys_ip == "" ]] ; then
-#	echo 'Invalid parameters. Pleas pass ip address like #this : ./config.sh ip_address '
-#	exit 1
-#fi
-#
-#ssh -q root@$rys_ip exit 
-#if [[ $(echo $?) == 0 ]] ; then
-#	echo Host is reachable.
-#else
-#	echo Host cannot be reached
-#	exit 2
-#fi
+if [[ $rys_ip == "" ]] ; then
+	echo 'Invalid parameters. Pleas pass ip address like #this : ./config.sh ip_address '
+	exit 1
+fi
+
+ssh -q root@$rys_ip exit 
+if [[ $(echo $?) == 0 ]] ; then
+	echo Host is reachable.
+else
+	echo Host cannot be reached
+	exit 2
+fi
 
 # -t is for allocating TTY
 #TTY - text-only console
-#ssh -t -t root@$rys_ip '/bin/bash' << EOF
+ssh -t -t root@$rys_ip '/bin/bash' << EOF
 
-#git clone https://github.com/GroupOfRobots/RobotConfig
+git clone https://github.com/GroupOfRobots/RobotConfig
 
 cd ~/RobotConfig
 echo dtb=am335x-bonegreen-wireless.dtb >> /boot/uEnv.txt
@@ -62,8 +62,8 @@ systemctl stop wificonfig.service
 systemctl disable wificonfig.service
 
 reboot
-#exit 0
+exit 0
 #sudo apt-get remove nodejs
-#EOF
+EOF
 
 
