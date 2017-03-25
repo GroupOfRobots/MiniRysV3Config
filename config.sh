@@ -19,7 +19,7 @@
 #TTY - text-only console
 #ssh -t -t root@$rys_ip '/bin/bash' << EOF
 
-git clone https://github.com/GroupOfRobots/RobotConfig
+#git clone https://github.com/GroupOfRobots/RobotConfig
 
 cd ~/RobotConfig
 echo dtb=am335x-bonegreen-wireless.dtb >> /boot/uEnv.txt
