@@ -1,7 +1,0 @@
-
-copy bin files to /lib/firmware
-
-cd /lib/firmware
-ln -s PRU_RPMsg_Echo_Interrupt0.out am335x-pru0-fw
-ln -s PRU_RPMsg_Echo_Interrupt1.out am335x-pru1-fw
-

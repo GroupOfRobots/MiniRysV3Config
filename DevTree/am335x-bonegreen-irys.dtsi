@@ -9,21 +9,52 @@
 &am33xx_pinmux {
 	pru_cape_bone_pins: pru_cape_bone_pins {
 		pinctrl-single,pins = <
+			0x0b8 0xd // P8_39 = Motor Left Direction	= 6	
+			0x0bc 0xd // P8_40 = Motor Left Step		= 7
+			0x0b0 0xd // P8_41 = Motor Left M0		= 4
+			0x0b4 0xd // P8_42 = Motor Left M1		= 5
+			0x0a8 0xd // P8_43 = Motor Right Direction	= 2
+			0x0ac 0xd // P8_44 = Motor Right Step		= 3
+			0x0a0 0xd // P8_45 = Motor Right M0		= 0
+			0x0a4 0xd // P8_46 = Motor Right M1		= 1
+		>;
+	};
 
-			0x0b8 0xd // P8_39 = Motor Left Direction 	= 6	
-		    	0x0bc 0xd // P8_40 = Motor Left Step	 	= 7
-			0x0b0 0xd // P8_41 = Motor Left M0	 	= 4
-		    	0x0b4 0xd // P8_42 = Motor Left M1	 	= 5
-			0x0a8 0xd // P8_43 = Motor Right Direction  	= 2
-			0x0ac 0xd // P8_44 = Motor Right Step	 	= 3
-			0x0a0 0xd // P8_45 = Motor Right M0  		= 0
-			0x0a4 0xd // P8_46 = Motor Right M1	  	= 1
+	i2c1_pins: pinmux_i2c1_pins {
+		pinctrl-single,pins = <
+			0x158 0x72	/* uart1_ctsn.i2c2_sda, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2 */
+			0x15c 0x72	/* uart1_rtsn.i2c2_scl, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2 */
+		>;
+	};
+
+	cape_gpio_pins: pinmux_cape_gpio_pins {
+		pinctrl-single,pins = <
+			0x090 ( PIN_OUTPUT_PULLDOWN | MUX_MODE7 ) /* P8_7, timer4, gpio2_2, 66 */
+			0x094 ( PIN_OUTPUT_PULLDOWN | MUX_MODE7 ) /* P8_8, timer7, gpio2_3, 67 */
+			0x09c ( PIN_OUTPUT_PULLDOWN | MUX_MODE7 ) /* P8_9, timer5, gpio2_5, 69 */
+			0x098 ( PIN_OUTPUT_PULLDOWN | MUX_MODE7 ) /* P8_10, timer6, gpio2_4, 68 */
+			0x034 ( PIN_OUTPUT_PULLDOWN | MUX_MODE7 ) /* P8_11, gpio1_13, gpio1_13, 45 */
 		>;
 	};
 };
 
+&ocp {
+	i2c1: i2c@4802a000 {
+		pinctrl-names = "default";
+		pinctrl-0 = <&i2c1_pins>;
+		status = "okay";
+		clock-frequency = <400000>;
+	};
+
+	cape_gpio {
+		status = "okay";
+		pinctrl-names = "default";
+		pinctrl-0 = <&cape_gpio_pins>;
+	};
+};
+
 &lcdc {
-	status = "disabled";  		/* Disable HDMI due to pin mux conflicts with PRU Cape */
+	status = "disabled";	/* Disable HDMI due to pin mux conflicts with PRU Cape */
 };
 
 /{

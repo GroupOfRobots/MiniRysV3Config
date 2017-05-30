@@ -7,30 +7,18 @@
  */
 /dts-v1/;
 
-
 #include "am33xx.dtsi"
 #include "am335x-bone-common.dtsi"
 #include "am335x-bonegreen-wl1835.dtsi"
 
-
-/* pruss: pick one: */
 /*
  * /etc/modprobe.d/pruss-blacklist.conf
  *
  * blacklist uio_pruss
  */
 
- #include "am33xx-pruss-rproc.dtsi" 
- #include "am335x-bonegreen-irys.dtsi"
-/*
- * /etc/modprobe.d/pruss-blacklist.conf
- *
- * blacklist pruss
- * blacklist pruss_intc
- * blacklist pru-rproc
- */
-
-/* #include "am33xx-pruss-uio.dtsi" */
+#include "am33xx-pruss-rproc.dtsi" 
+#include "am335x-bonegreen-irys.dtsi"
 
 / {
 	model = "TI AM335x BeagleBone Green Wireless";

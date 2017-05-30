@@ -1,9 +1,0 @@
-cp initial.sh /usr/bin
-cp startup.service /etc/systemd/system
-
-chmod 744 /usr/bin/initial.sh
-chmod 664 /etc/systemd/system/startup.service
-systemctl daemon-reload
-systemctl enable startup.service
-systemctl start startup.service
-
