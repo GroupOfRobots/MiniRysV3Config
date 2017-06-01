@@ -10,6 +10,7 @@
 #include "am33xx.dtsi"
 #include "am335x-bone-common.dtsi"
 #include "am335x-bonegreen-wl1835.dtsi"
+#include "am335x-peripheral-spi0.dtsi"
 
 /*
  * /etc/modprobe.d/pruss-blacklist.conf
@@ -17,7 +18,7 @@
  * blacklist uio_pruss
  */
 
-#include "am33xx-pruss-rproc.dtsi" 
+#include "am33xx-pruss-rproc.dtsi"
 #include "am335x-bonegreen-irys.dtsi"
 
 / {
@@ -53,4 +54,11 @@
 
 &mac {
 	status = "disabled";
+};
+
+&tscadc {
+	status = "okay";
+	adc {
+		ti,adc-channels = <4 5 6>;
+	};
 };
