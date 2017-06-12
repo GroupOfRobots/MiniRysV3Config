@@ -10,7 +10,6 @@
 #include "am33xx.dtsi"
 #include "am335x-bone-common.dtsi"
 #include "am335x-bonegreen-wl1835.dtsi"
-#include "am335x-peripheral-spi0.dtsi"
 
 /*
  * /etc/modprobe.d/pruss-blacklist.conf
@@ -65,4 +64,10 @@
 
 &am335x_adc {
     ti,adc-channels = <0 1 2 3 4 5 6 7>;
+};
+
+&spi1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi1_pins>;
+	status = "okay";
 };
