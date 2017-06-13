@@ -70,4 +70,22 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi1_pins>;
 	status = "okay";
+
+	spi1_0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0>;
+		// spi-max-frequency = <16000000>;
+		spi-max-frequency = <24000000>;
+		compatible = "spidev";
+	};
+
+	spi1_1 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <1>;
+		// spi-max-frequency = <16000000>;
+		spi-max-frequency = <24000000>;
+		compatible = "spidev";
+	};
 };
