@@ -1,0 +1,31 @@
+#Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0
+
+#uname_r=4.9.27-ti-rt-r33
+uname_r=4.4.62-ti-rt-r103
+#uuid=
+#dtb=am335x-bonegreen-wireless.dtb
+dtb=am335x-bonegreen-wireless-irys.dtb
+#dtb=am335x-bonegreen-wireless-irys-nospi.dtb
+
+###U-Boot Overlays###
+###Documentation: http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#U-Boot_Overlays
+###Master Enable
+enable_uboot_overlays=0
+###Disable auto loading of virtual capes (emmc/video/wireless)
+#disable_uboot_overlay_emmc=1
+disable_uboot_overlay_video=1
+disable_uboot_overlay_audio=1
+#disable_uboot_overlay_wireless=1
+###Cape Universal Enable
+enable_uboot_cape_universal=0
+###U-Boot fdt tweaks...
+#uboot_fdt_buffer=0x60000
+###U-Boot Overlays###
+
+#cmdline=coherent_pool=1M net.ifnames=0 quiet cape_universal=enable
+cmdline=coherent_pool=1M net.ifnames=0 quiet cape_universal=disable
+
+##enable Generic eMMC Flasher:
+##make sure, these tools are installed: dosfstools rsync
+#cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh
+
