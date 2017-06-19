@@ -12,6 +12,9 @@
 #include "am335x-bonegreen-wl1835.dtsi"
 #include "am33xx-pruss-rproc.dtsi"
 
+#include "am335x-bone-pinmux-i2c2.dtsi"
+#include "am335x-bone-pinmux-spi0.dtsi"
+
 #include "am335x-bonegreen-irys.dtsi"
 
 / {
@@ -58,8 +61,4 @@
 
 &am335x_adc {
     ti,adc-channels = <0 1 2 3 4 5 6 7>;
-};
-
-&spi1 {
-	status = "okay";
 };

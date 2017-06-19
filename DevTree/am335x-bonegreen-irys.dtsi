@@ -20,13 +20,6 @@
 		>;
 	};
 
-	i2c1_pins: pinmux_i2c1_pins {
-		pinctrl-single,pins = <
-			0x158 0x72 // uart1_ctsn.i2c2_sda, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2
-			0x15c 0x72 // uart1_rtsn.i2c2_scl, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2
-		>;
-	};
-
 	cape_gpio_pins: pinmux_cape_gpio_pins {
 		pinctrl-single,pins = <
 			0x090 ( PIN_OUTPUT | MUX_MODE7 ) // P8_7, timer4, gpio2_2, /sys/class/gpio/gpio66
@@ -35,26 +28,9 @@
 			0x098 ( PIN_OUTPUT | MUX_MODE7 ) // P8_10, timer6, gpio2_4, /sys/class/gpio/gpio68
 		>;
 	};
-
-	spi1_pins: pinmux_spi1_pins {
-		pinctrl-single,pins = <
-			0x190 ( PIN_INPUT_PULLUP | MUX_MODE3 ) // 0x33 // mcasp0_aclkx.spi1_sclk, INPUT_PULLUP | MODE3
-			0x194 ( PIN_INPUT_PULLUP | MUX_MODE3 ) // 0x33 // mcasp0_fsx.spi1_d0, INPUT_PULLUP | MODE3
-			0x198 ( PIN_OUTPUT_PULLUP | MUX_MODE3 ) // 0x13 // mcasp0_axr0.spi1_d1, OUTPUT_PULLUP | MODE3
-			0x19c ( PIN_OUTPUT_PULLUP | MUX_MODE3 ) // 0x13 // mcasp0_ahclkr.spi1_cs0, OUTPUT_PULLUP | MODE3
-			// 0x164 0x12 // eCAP0_in_PWM0_out.spi1_cs1 OUTPUT_PULLUP | MODE2
-		>;
-	};
 };
 
 &ocp {
-	i2c1: i2c@4802a000 {
-		pinctrl-names = "default";
-		pinctrl-0 = <&i2c1_pins>;
-		status = "okay";
-		clock-frequency = <400000>;
-	};
-
 	cape_gpio {
 		status = "okay";
 		pinctrl-names = "default";
@@ -73,46 +49,6 @@
 
 &mcasp0 {
 	status = "disabled";
-};
-
-&spi1 {
-	#address-cells = <1>;
-	#size-cells = <0>;
-
-	pinctrl-names = "default";
-	pinctrl-0 = <&spi1_pins>;
-
-	spidev@0{
-		compatible = "spidev";
-		reg = <0>;
-		spi-max-frequency = <24000000>;
-	};
-	spidev@1{
-		compatible = "spidev";
-		reg = <1>;
-		spi-max-frequency = <24000000>;
-	};
-
-	/*
-	spidev@0 {
-		#address-cells = <1>;
-		#size-cells = <0>;
-		compatible = "spidev";
-		reg = <0>;
-		spi-max-frequency = <16000000>;
-		spi-cpol;
-		spi-cpha;
-	};
-	spidev@1 {
-		#address-cells = <1>;
-		#size-cells = <0>;
-		compatible = "spidev";
-		reg = <1>;
-		spi-max-frequency = <16000000>;
-		spi-cpol;
-		spi-cpha;
-	};
-	*/
 };
 
 /{
