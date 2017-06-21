@@ -10,7 +10,6 @@
 #include "am33xx.dtsi"
 #include "am335x-bone-common.dtsi"
 #include "am335x-bonegreen-wl1835.dtsi"
-#include "am33xx-pruss-rproc.dtsi"
 
 #include "am335x-bone-pinmux-i2c2.dtsi"
 #include "am335x-bone-pinmux-spi0.dtsi"
