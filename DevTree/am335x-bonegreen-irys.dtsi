@@ -9,23 +9,30 @@
 &am33xx_pinmux {
 	pru_cape_bone_pins: pru_cape_bone_pins {
 		pinctrl-single,pins = <
-			0x0b8 0xd // Left Dir; 		P8_39,	gpio2_12,	eQEP2_index,		/sys/class/gpio/gpio76
-			0x0bc 0xd // Left Step;		P8_40,	gpio2_13,	eQEP2_strobe,		/sys/class/gpio/gpio77
-			0x0b0 0xd // M0;			P8_41,	gpio2_10,	eQEP2A_in,			/sys/class/gpio/gpio74
-			0x0b4 0xd // Enable;		P8_42,	gpio2_11,	eQEP2B_in,			/sys/class/gpio/gpio75
-			0x0a8 0xd // M2;			P8_43,	gpio2_8,	ehrpwm2_tripzone,	/sys/class/gpio/gpio72
-			0x0ac 0xd // M1;			P8_44,	gpio2_9,	ehrpwm0_synco,		/sys/class/gpio/gpio73
-			0x0a0 0xd // Right Dir;		P8_45,	gpio2_6,	ehrpwm2A,			/sys/class/gpio/gpio70
-			0x0a4 0xd // Right Step;	P8_46,	gpio2_7,	ehrpwm2B,			/sys/class/gpio/gpio71
+			BONE_P8_27 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_11, Enable
+			BONE_P8_28 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_10, M0
+			BONE_P8_29 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_09, M1
+			BONE_P8_30 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_08, M2
+			BONE_P8_43 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_12, Left Dir
+			BONE_P8_44 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_13, Left Step
+			BONE_P8_45 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_06, Right Dir
+			BONE_P8_46 ( PIN_OUTPUT | MUX_MODE6 ) // gpio2_07, Right Step
 		>;
 	};
 
 	cape_gpio_pins: pinmux_cape_gpio_pins {
 		pinctrl-single,pins = <
-			0x090 ( PIN_OUTPUT | MUX_MODE7 ) // P8_7, timer4, gpio2_2, /sys/class/gpio/gpio66
-			0x094 ( PIN_OUTPUT | MUX_MODE7 ) // P8_8, timer7, gpio2_3, /sys/class/gpio/gpio67
-			0x09c ( PIN_OUTPUT | MUX_MODE7 ) // P8_9, timer5, gpio2_5, /sys/class/gpio/gpio69
-			0x098 ( PIN_OUTPUT | MUX_MODE7 ) // P8_10, timer6, gpio2_4, /sys/class/gpio/gpio68
+			// TOF enables
+			BONE_P8_07 ( PIN_OUTPUT | MUX_MODE7 ) // gpio2_02, /sys/class/gpio/gpio66
+			BONE_P8_08 ( PIN_OUTPUT | MUX_MODE7 ) // gpio2_03, /sys/class/gpio/gpio67
+			BONE_P8_09 ( PIN_OUTPUT | MUX_MODE7 ) // gpio2_05, /sys/class/gpio/gpio69
+			BONE_P9_14 ( PIN_OUTPUT | MUX_MODE7 ) // gpio1_18, .../gpio50
+			BONE_P9_16 ( PIN_OUTPUT | MUX_MODE7 ) // gpio1_19, .../gpio51
+
+			// DWM1000 enable and IRQ
+			BONE_P9_27 ( PIN_OUTPUT | MUX_MODE7 ) // gpio3_19, .../gpio115
+			BONE_P9_41B ( PIN_OUTPUT | MUX_MODE7 ) // gpio3_20, .../gpio116
+			// BONE_P9_41A ( PIN_OUTPUT | MUX_MODE7 ) // gpio0_20, .../gpio20
 		>;
 	};
 };

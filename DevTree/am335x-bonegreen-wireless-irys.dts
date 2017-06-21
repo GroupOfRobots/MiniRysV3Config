@@ -62,3 +62,18 @@
 &am335x_adc {
     ti,adc-channels = <0 1 2 3 4 5 6 7>;
 };
+
+&spi0 {
+	channel@0 {
+		compatible = "spidev";
+		spi-max-frequency = <16000000>;
+		reg = <0>;
+		// spi-cpha; // shifted clock phase (CPHA) mode
+	};
+
+	channel@1 {
+		compatible = "spidev";
+		spi-max-frequency = <16000000>;
+		reg = <1>;
+	};
+};
