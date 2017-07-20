@@ -63,19 +63,5 @@
 };
 
 &spi0 {
-	pinctrl-names = "default";
-
 	status = "okay";
-
-	channel@0 {
-		compatible = "spidev";
-		spi-max-frequency = <3000000>;
-		reg = <0>;
-	};
-
-	channel@1 {
-		compatible = "spidev";
-		spi-max-frequency = <3000000>;
-		reg = <1>;
-	};
 };
