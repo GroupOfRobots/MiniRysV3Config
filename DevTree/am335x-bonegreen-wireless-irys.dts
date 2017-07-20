@@ -12,7 +12,7 @@
 #include "am335x-bonegreen-wl1835.dtsi"
 
 #include "am335x-bone-pinmux-i2c2.dtsi"
-#include "am335x-bone-pinmux-spi0.dtsi"
+// #include "am335x-bone-pinmux-spi0.dtsi"
 
 #include "am335x-bonegreen-irys.dtsi"
 
@@ -63,16 +63,19 @@
 };
 
 &spi0 {
+	pinctrl-names = "default";
+
+	status = "okay";
+
 	channel@0 {
 		compatible = "spidev";
-		spi-max-frequency = <5000000>;
+		spi-max-frequency = <3000000>;
 		reg = <0>;
-		// spi-cpha; // shifted clock phase (CPHA) mode
 	};
 
 	channel@1 {
 		compatible = "spidev";
-		spi-max-frequency = <5000000>;
+		spi-max-frequency = <3000000>;
 		reg = <1>;
 	};
 };

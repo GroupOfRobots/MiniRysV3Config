@@ -35,6 +35,16 @@
 			BONE_P9_41A ( PIN_INPUT | MUX_MODE7 ) // gpio0_20, .../gpio20
 		>;
 	};
+
+	// From am335x-bone-pinmux-spi0.dtsi
+	bb_spi0_pins: pinmux_bb_spi0_pins {
+		pinctrl-single,pins = <
+			0x150 0x30	/* spi0_sclk.spi0_sclk, INPUT_PULLUP | MODE0 */
+			0x154 0x30	/* spi0_d0.spi0_d0, INPUT_PULLUP | MODE0 */
+			0x158 0x10	/* spi0_d1.spi0_d1, OUTPUT_PULLUP | MODE0 */
+			0x15c 0x10	/* spi0_cs0.spi0_cs0, OUTPUT_PULLUP | MODE0 */
+		>;
+	};
 };
 
 &ocp {
@@ -56,6 +66,11 @@
 
 &mcasp0 {
 	status = "disabled";
+};
+
+// From am335x-bone-pinmux-spi0.dtsi
+&dcan0 {
+	pinctrl-0 = <&bb_spi0_pins>;
 };
 
 /{
