@@ -1,11 +1,8 @@
 #Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0
 
-#uname_r=4.9.27-ti-rt-r33
-uname_r=4.4.62-ti-rt-r103
+uname_r=4.4.80-ti-rt-r116
 #uuid=
-#dtb=am335x-bonegreen-wireless.dtb
 dtb=am335x-bonegreen-wireless-irys.dtb
-#dtb=am335x-bonegreen-wireless-irys-nospi.dtb
 
 ###U-Boot Overlays###
 ###Documentation: http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#U-Boot_Overlays
