@@ -36,15 +36,6 @@
 		>;
 	};
 
-	// From am335x-bone-pinmux-spi0.dtsi
-	/*bb_spi0_pins: pinmux_bb_spi0_pins {
-		pinctrl-single,pins = <
-			0x150 0x30 // spi0_sclk.spi0_sclk, INPUT_PULLUP | MODE0
-			0x154 0x30 // spi0_d0.spi0_d0, INPUT_PULLUP | MODE0
-			0x158 0x10 // spi0_d1.spi0_d1, OUTPUT_PULLUP | MODE0
-			0x15c 0x10 // spi0_cs0.spi0_cs0, OUTPUT_PULLUP | MODE0
-		>;
-	};*/
 	bb_spi0_pins: pinmux_bb_spi0_pins {
 		pinctrl-single,pins = <
 			BONE_P9_22 ( PIN_INPUT_PULLUP | MUX_MODE0 ) // SCLK
