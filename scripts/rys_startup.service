@@ -1,10 +1,10 @@
 [Unit]
-Description= <startup script>
+Description= <MiniRys startup script>
 After=syslog.target network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/initial.sh
+ExecStart=/usr/sbin/rys_init.sh
 
 [Install]
 WantedBy=multi-user.target
